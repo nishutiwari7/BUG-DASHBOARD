@@ -1,0 +1,34 @@
+{
+    "version": 2,
+    "builds": [
+      {
+        "src": "package.json",
+        "use": "@vercel/static-build",
+        "config": {
+          "distDir": "dist"
+        }
+      }
+    ],
+    "routes": [
+      {
+        "src": "/api/(.*)",
+        "dest": "https://vercel.com/sso/access/request?next=%2Fsso-api%3Furl%3Dhttps%253A%252F%252Fserver-30dxgftky-mrunalpattanaiks-projects.vercel.app%252F%26nonce%3D01d4e2fee7fa1977bdb3315b9101326be258bdf1d58552abddd416f982b90a09&url=server-30dxgftky-mrunalpattanaiks-projects.vercel.app"
+      },
+      {
+        "src": "/App/(.*)",
+        "dest": "/App/$1"
+      },
+      {
+        "src": "/assets/(.*)",
+        "dest": "/assets/$1"
+      },
+      {
+        "src": "/(.*)\\.(.+)",
+        "dest": "/$1.$2"
+      },
+      {
+        "src": "/(.*)",
+        "dest": "/index.html"
+      }
+    ]
+  }

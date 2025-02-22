@@ -1,0 +1,32 @@
+version: '3'
+
+services:
+  frontend:
+    build: ./bug_dashboard
+    ports:
+      - "80:80"
+    depends_on:
+      - backend
+    volumes:
+      - ./bug_dashboard:/app
+      - /app/node_modules
+    environment:
+      - NODE_ENV=development
+      - VITE_API_URL=http://localhost:3000/api
+
+  backend:
+    build: ./server
+    ports:
+      - "4000:3000"
+    environment:
+      - NODE_ENV=development
+      - MONGO_URI=${MONGO_URI}
+      - JWT_SECRET=${JWT_SECRET}
+      - EMAIL_USER=${EMAIL_USER}
+      - EMAIL_PASS=${EMAIL_PASS}
+      - ADMIN_EMAIL=${ADMIN_EMAIL}
+      - BASE_URL=http://localhost:3000
+    volumes:
+      - ./server:/app
+      - /app/node_modules
+      - ./server/uploads:/app/uploads

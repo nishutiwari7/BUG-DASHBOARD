@@ -1,11 +1,8 @@
 import React, { useState, useEffect } from "react";
-<<<<<<< HEAD
-import { Moon, Sun, Search, Edit, Eye, LogOut, Check, X, HomeIcon } from "lucide-react";
-import { useNavigate } from "react-router-dom";
-=======
+
 import { Moon, Sun, Search, Edit, Eye, LogOut, Check, X } from "lucide-react";
 import { Link, useNavigate } from "react-router-dom";
->>>>>>> c9016e2 (Your commit message)
+
 import axios from "axios";
 import API_BASE_URL from "./config";
 
@@ -22,20 +19,10 @@ export default function Admin() {
   const fetchPendingUsers = async () => {
     try {
       const response = await axios.get(`${API_BASE_URL}/auth/pending-users`);
-<<<<<<< HEAD
-      console.log("Fetched Users:", response.data); 
-      setPendingUsers(Array.isArray(response.data) ? response.data : []);
-  
-      console.log("Updated State:", pendingUsers); 
-    } catch (error) {
-      console.error("Error fetching pending users", error);
-      setPendingUsers([]); 
-=======
       setPendingUsers(Array.isArray(response.data) ? response.data : []);
     } catch (error) {
       console.error("Error fetching pending users", error);
       setPendingUsers([]);
->>>>>>> c9016e2 (Your commit message)
     }
   };
 
