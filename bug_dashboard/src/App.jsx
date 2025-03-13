@@ -5,9 +5,6 @@ import Signin from "./assets/Componets/Login page/signin";
 import Admin from "./assets/Componets/Admin Dashboard/Admin";
 import Hunter from "./assets/Componets/Hunter Dashboard/hunter";
 import Coach from "./assets/Componets/Coach Dashboard/coach";
-import Tool from './assets/Componets/Tool/tool';
-import TaskDetails from "./assets/Componets/Task/task";
-import Task from './assets/Componets/Task/task';
 import Protected from "./App/Common/Auth/Protected";
 import AdminBoard from "./assets/Componets/Admin Dashboard/AdminDashboard";
 function App() {
@@ -27,12 +24,6 @@ function App() {
         <Route path="/coach" element={<Protected><Coach/></Protected>} />
         <Route path="/admin-dashboard" element={<Protected><AdminBoard/></Protected>} />
         <Route path="/admin" element={userRole === "admin" ? <Admin /> : <Navigate to="/login" replace />} />
-        {/* <Route path="/admin" element={userRole === "admin" ? <Admin /> : <Navigate to="/login" replace />} /> */}
-        <Route path="/tool" element={<Tool/>} />
-        <Route path="/task" element={<Task/>} />
-        <Route path="/task-details/:taskId" element={<TaskDetails />} />
-        
-        
       </Routes>
     </Router>
   );
